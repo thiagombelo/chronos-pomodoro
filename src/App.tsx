@@ -6,14 +6,26 @@ import { Cycles } from './components/Cycles'
 import { DefaultInput } from './components/DefaultInput'
 import { DefaultButton } from './components/DefaultButton'
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react'
+import { Footer } from './components/Footer'
 
 import './styles/theme.css'
 import './styles/global.css'
+import { useState } from 'react'
 
  
 export function App() {
+    
+    const [numero, setNumero] = useState(0);
+    
+    function handleClick() {
+        setNumero(prevState => prevState + 1);
+    }
+
     return (
         <>
+            <Heading>Número: {numero}</Heading>
+            <button onClick={handleClick}>Amuenta</button>
+
             <Container>
                     <Logo />
             </Container>
@@ -29,7 +41,7 @@ export function App() {
             <Container>
                     <form className='form' action="" method="post">
                         <div className="formRow">
-                            <DefaultInput labelText='opa' id='input' type='text'/>
+                            <DefaultInput labelText={numero.toString()} id='input' type='text'/>
                         </div>
 
                         <div className="formRow">
@@ -41,15 +53,13 @@ export function App() {
                         </div>
 
                         <div className="formRow">
-                            <DefaultButton color='green'>
-                                <PlayCircleIcon />
-                            </DefaultButton>
-                            <DefaultButton color='red'>
-                                <StopCircleIcon />
-                            </DefaultButton>
-
+                            <DefaultButton icon={<PlayCircleIcon />}/>
                         </div>
                     </form>
+            </Container>
+
+            <Container>
+                <Footer />
             </Container>
         </>
     )
