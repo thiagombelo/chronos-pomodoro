@@ -10,52 +10,41 @@ import { Footer } from './components/Footer'
 
 import './styles/theme.css'
 import './styles/global.css'
-import { useState } from 'react'
 
- 
+
 export function App() {
-    
-    const [numero, setNumero] = useState(0);
-    
-    function handleClick() {
-        setNumero(prevState => prevState + 1);
-    }
-
     return (
         <>
-            <Heading>Número: {numero}</Heading>
-            <button onClick={handleClick}>Amuenta</button>
-
             <Container>
-                    <Logo />
+                <Logo />
             </Container>
-                    
+
             <Container>
-                    <Menu />
+                <Menu />
             </Container>
-            
+
             <Container>
-                    <CountDown />
+                <CountDown />
             </Container>
-            
+
             <Container>
-                    <form className='form' action="" method="post">
-                        <div className="formRow">
-                            <DefaultInput labelText={numero.toString()} id='input' type='text'/>
-                        </div>
+                <form className='form' action="" method="post">
+                    <div className="formRow">
+                        <DefaultInput labelText='Campo' id='input' type='text' />
+                    </div>
 
-                        <div className="formRow">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
+                    <div className="formRow">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
 
-                        <div className="formRow">
-                            <Cycles />
-                        </div>
+                    <div className="formRow">
+                        <Cycles />
+                    </div>
 
-                        <div className="formRow">
-                            <DefaultButton icon={<PlayCircleIcon />}/>
-                        </div>
-                    </form>
+                    <div className="formRow">
+                        <DefaultButton icon={<PlayCircleIcon />} />
+                    </div>
+                </form>
             </Container>
 
             <Container>
